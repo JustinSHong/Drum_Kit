@@ -1,20 +1,34 @@
 {
-  "name": "Drum_Kit",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JustinSHong/Drum_Kit.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JustinSHong/Drum_Kit/issues"
-  },
-  "homepage": "https://github.com/JustinSHong/Drum_Kit#readme"
+    "name": "Drum_Kit",
+    "version": "1.0.0",
+    "description": "",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JustinSHong/Drum_Kit.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/JustinSHong/Drum_Kit/issues"
+    },
+    "homepage": "https://github.com/JustinSHong/Drum_Kit#readme",
+    "devDependencies": {
+        "clean-webpack-plugin": "^1.0.0",
+        "css-loader": "^2.0.0",
+        "html-webpack-plugin": "^3.2.0",
+        "less": "^3.9.0",
+        "less-loader": "^4.1.0",
+        "mini-css-extract-plugin": "^0.5.0",
+        "style-loader": "^0.23.1",
+        "ts-loader": "^5.3.1",
+        "typescript": "^3.2.2",
+        "webpack": "^4.27.1",
+        "webpack-cli": "^3.1.2"
+    }
 }
