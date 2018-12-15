@@ -23,8 +23,12 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.less$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"]
+                test: /\.(le|c)ss$/,
+                use: [
+                    devMode ? MiniCssExtractPlugin.loader : "style-loader",
+                    "css-loader",
+                    "less-loader"
+                ]
             },
             {
                 test: /\.tsx?$/,
