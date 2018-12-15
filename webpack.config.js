@@ -16,7 +16,8 @@ module.exports = {
         : [
               new CleanWebpackPlugin(["dist"]),
               new HtmlWebpackPlugin({
-                  title: "Output Management"
+                  title: "Drum Kit",
+                  template: "src/index.html"
               })
           ],
     output: {
