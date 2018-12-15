@@ -38,7 +38,8 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: "ts-loader",
                 exclude: /node_modules/
-            }
+            },
+            { test: /\.wav$/, use: [{ loader: "file-loader", options: {} }] }
         ]
     },
     resolve: {
