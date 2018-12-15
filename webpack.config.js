@@ -23,7 +23,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.less$/,
+                test: /\.(le|c)ss$/,
                 use: [
                     devMode
                         ? [
