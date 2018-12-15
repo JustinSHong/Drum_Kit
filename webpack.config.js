@@ -8,7 +8,7 @@ module.exports = {
     entry: "./src/index.ts",
     plugins: devMode
         ? [
-              new MiniCssExtractPlugin(),
+              new MiniCssExtractPlugin({ filename: "[name].css" }),
               new CleanWebpackPlugin(["dist"]),
               new HtmlWebpackPlugin({
                   title: "Drum Kit",
@@ -25,9 +25,16 @@ module.exports = {
             {
                 test: /\.less$/,
                 use: [
-                    devMode ? MiniCssExtractPlugin.loader : "style-loader",
-                    "css-loader",
-                    "less-loader"
+                    devMode
+                        ? { loader: MiniCssExtractPlugin.loader }
+                        : { loader: "style-loader" },
+                    { loader: "css-loader" },
+                    {
+                        loader: "less-loader",
+                        options: {
+                            paths: [path.resolve(__dirname, "node_modules")]
+                        }
+                    }
                 ]
             },
             {
