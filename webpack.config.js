@@ -8,18 +8,14 @@ module.exports = {
     entry: "./src/index.ts",
     plugins: devMode
         ? [
-              new MiniCssExtractPlugin({
-                  filename: "[name].css",
-                  chunkFilename: "[id].css"
-              })
-          ]
-        : [
+              new MiniCssExtractPlugin(),
               new CleanWebpackPlugin(["dist"]),
               new HtmlWebpackPlugin({
                   title: "Drum Kit",
                   template: "src/index.html"
               })
-          ],
+          ]
+        : [],
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname, "dist")
