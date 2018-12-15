@@ -26,15 +26,13 @@ module.exports = {
                 test: /\.less$/,
                 use: [
                     devMode
-                        ? { loader: MiniCssExtractPlugin.loader }
-                        : { loader: "style-loader" },
-                    { loader: "css-loader" },
-                    {
-                        loader: "less-loader",
-                        options: {
-                            paths: [path.resolve(__dirname, "node_modules")]
-                        }
-                    }
+                        ? [
+                              MiniCssExtractPlugin.loader,
+                              "css-loader",
+                              "postcss-loader",
+                              "sass-loader"
+                          ]
+                        : "style-loader"
                 ]
             },
             {
