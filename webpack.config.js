@@ -35,7 +35,14 @@ module.exports = {
                 use: "ts-loader",
                 exclude: /node_modules/
             },
-            { test: /\.wav$/, use: [{ loader: "file-loader", options: {} }] }
+            {
+                test: /\.wav$/,
+                use: ["file-loader"]
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: ["file-loader"]
+            }
         ]
     },
     resolve: {

@@ -11,8 +11,8 @@ server.use(express.json());
 server.use(cors());
 
 // render static files
+server.use(express.static(__dirname + "/src/assets"));
 server.use(express.static(__dirname + "/dist"));
-// app.use(express.static(__dirname + "/src"));
 
 server.listen(PORT, () => {
     console.log(`\n===API Running on port ${PORT}===\n`);
