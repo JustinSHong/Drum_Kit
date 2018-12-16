@@ -40,7 +40,7 @@ html {
 // RESET END
 
 body {
-    background: url("assets/concert.jpg") no-repeat bottom center;
+    background: url("assets/concert.jpg") no-repeat center;
     background-size: cover;
 }
 
@@ -48,20 +48,27 @@ body {
     display: flex;
     flex-direction: row;
     flex: 1;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
 
     .key {
-        border: 0.5rem solid black;
+        border: 0.25rem solid black;
         border-radius: 0.5rem;
         margin: 1rem;
-        font-size: 1rem;
+        font-size: 1.5rem;
         padding: 1rem 0.5rem;
-        width: 10rem;
+        width: 6rem;
         text-align: center;
         color: white;
-        background: rgba(0, 0, 0, 0.4);
         text-shadow: 0 0 0.5rem black;
+    }
+
+    .sound {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        color: #ffc600;
     }
 }
