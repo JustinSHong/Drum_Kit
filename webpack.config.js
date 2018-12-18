@@ -2,20 +2,21 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const devMode = process.env.NODE_ENV === "production";
+// const devMode = process.env.NODE_ENV === "production";
 
 module.exports = {
     entry: "./src/index.ts",
-    plugins: devMode
-        ? [
-              new MiniCssExtractPlugin({ filename: "[name].css" }),
-              new CleanWebpackPlugin(["dist"]),
-              new HtmlWebpackPlugin({
-                  title: "Drum Kit",
-                  template: "src/index.html"
-              })
-          ]
-        : [],
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+        }),
+        new CleanWebpackPlugin(["dist"]),
+        new HtmlWebpackPlugin({
+            title: "Drum Kit",
+            template: "src/index.html"
+        })
+    ],
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname, "dist")
@@ -23,9 +24,11 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(le|c)ss$/,
+                test: /\.(c|le)ss$/,
                 use: [
-                    devMode ? MiniCssExtractPlugin.loader : "style-loader",
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
                     "css-loader",
                     "less-loader"
                 ]
@@ -47,5 +50,6 @@ module.exports = {
     },
     resolve: {
         extensions: ["tsx", ".ts", ".js"]
-    }
+    },
+    mode: "development"
 };
