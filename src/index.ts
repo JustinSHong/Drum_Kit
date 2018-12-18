@@ -1,6 +1,14 @@
 import "./styles.less";
 
 (function() {
+    // remove transition once sound is done playing
+    function stopTransition(e: any) {
+        console.log(`event obj ${e}`);
+        if (e.propertyName === "transform") {
+            e.target.classList.remove("playing");
+        }
+    }
+
     // plays a key's corresponding sound
     function playDrumSound(e: any) {
         const audio: any = document.querySelector(
@@ -16,4 +24,9 @@ import "./styles.less";
     }
 
     window.addEventListener("keydown", playDrumSound);
+
+    const keys = Array.from(document.querySelectorAll(".key"));
+    keys.forEach(key => {
+        key.addEventListener("transitionend", stopTransition);
+    });
 })();
